@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "AllUsers";
+    int i = 1;
+}
+
+<script src="@Url.Content("~/assets/js/jquery.min.js")"></script>
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+
+
+                            <div class="row">
+
+
+                              
+                                    <div class="col-md-12">
+                                        <h1>All users</h1>
+                                    </div>
+                               
+                            </div>
+                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="page-content-wrapper ">
+
+                            <div class="container">
+
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel panel-primary">
+                                            <div class="panel-body">
+
+
+                                                <div class="row">
+
+
+                                                   
+                                                      <div class="col-md-12">
+                                                          <div class="col-md-6">
+
+                                                              <table class="table table-striped">
+                                                                  <tr>
+                                                                      <th>No.</th>
+                                                                      <th>Name</th>
+                                                                  </tr>
+                                                                  @foreach (var stf in ViewBag.AllUsers)
+            {
+                                                                      <tr>
+                                                                          <td>@i</td>
+                                                                          <td>@stf.Name</td>
+
+                                                                      </tr>
+                                                                      i++;
+                                                                  }
+
+                                                              </table>
+
+
+
+                                                          </div>
+                                                      </div>
+
+
+                                                    
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+</div>
+
+
+
+
+
+
+<script src="@Url.Content("~/assets/js/bootstrap.min.js")"></script>
+<script src="@Url.Content("~/assets/js/modernizr.min.js")"></script>
+<script src="@Url.Content("~/assets/js/detect.js")"></script>
+<script src="@Url.Content("~/assets/js/fastclick.js")"></script>
+<script src="@Url.Content("~/assets/js/jquery.slimscroll.js")"></script>
+<script src="@Url.Content("~/assets/js/jquery.blockUI.js")"></script>
+<script src="@Url.Content("~/assets/js/waves.js")"></script>
+<script src="@Url.Content("~/assets/js/wow.min.js")"></script>
+<script src="@Url.Content("~/assets/js/jquery.nicescroll.js")"></script>
+<script src="@Url.Content("~/assets/js/jquery.scrollTo.min.js")"></script>
+<script src="@Url.Content("~/assets/js/app.js")"></script>

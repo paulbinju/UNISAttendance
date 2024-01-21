@@ -1,0 +1,200 @@
+﻿
+@{
+    ViewBag.Title = "Punching";
+    int i = 1;
+}
+
+<script src="@Url.Content("~/assets/js/jquery.min.js")"></script>
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+
+
+                            <div class="row">
+
+
+
+                                <div class="col-md-4">
+                                    <h2>Punchings - @ViewBag.SelDate </h2>
+                                </div>
+
+
+                                <div class="col-md-7 table-bordered pull-right">
+                                    <div class="row">
+
+                                        <br />
+                                        @using (Html.BeginForm())
+                                        {
+                                            <div class="col-md-2"><p>Select Date</p></div>
+                                            <div class="col-md-8"><input type="date" name="seldate" class="form-control" required /></div>
+                                            <div class="col-md-2"><input type="submit" name="submit" value="Generate" class="btn btn-danger" /></div>
+                                        }
+                                        <br class="clearfix" /><br />
+                                        <br class="clearfix" />
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="page-content-wrapper ">
+
+            <div class="container">
+
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+
+
+                                <div class="row">
+
+
+
+                                   
+
+                                        <div class="col-md-4">
+                                            @{ i = 1; }
+                                            <h3>All Punchings</h3>
+
+                                            <table class="table table-striped">
+                                                <tr>
+                                                   
+                                                    <th>ID</th>
+                                                    <th>Name</th>
+                                                    <th>Timing</th>
+                                                </tr>
+                                                @foreach (var stf in ViewBag.results)
+                                                {
+                                                    <tr>
+                                                       
+                                                        <td>@stf.UID</td>
+                                                        <td>@stf.Name</td>
+                                                        <td>@stf.DateTimez</td>
+                                                    </tr>
+                                                    i++;
+                                                }
+
+                                            </table>
+
+
+
+                                        </div>
+
+                                       
+
+
+                                        <div class="col-md-4">
+                                            @{ i = 1; }
+
+                                            <p class="pull-right"><a href="@Url.Content("~/ExcelExporter")" class="btn btn-success" target="_blank"> <i class="fa fa-Excel"></i> Export to Excel</a> </p>
+                                            <h3>First Punch</h3>
+
+                                            <table class="table table-striped">
+                                                <tr>
+                                                    <th>No.</th>
+                                                   
+                                                    <th>Name</th>
+                                                    <th>Timing</th>
+                                                </tr>
+                                                @foreach (var stf in ViewBag.PunchIn)
+                                                {
+                                                    <tr>
+                                                        <td>@i</td>
+                                                        
+                                                        <td>@stf.Name</td>
+                                                        <td>@stf.DateTimez</td>
+                                                    </tr>
+                                                    i++;
+                                                }
+
+                                            </table>
+
+
+
+                                        </div>
+
+
+                                        <div class="col-md-4">
+                                            @{ i = 1; }
+                                            <h3>Last Punch</h3>
+
+                                            <table class="table table-striped">
+                                                <tr>
+                                                    <th>No.</th>
+                                                   
+                                                    <th>Name</th>
+                                                    <th>Timing</th>
+                                                </tr>
+                                                @foreach (var stf in ViewBag.PunchOut)
+                                                {
+                                                    <tr>
+                                                        <td>@i</td>
+                                                        
+                                                        <td>@stf.Name</td>
+                                                        <td>@stf.DateTimez</td>
+                                                    </tr>
+                                                    i++;
+                                                }
+
+                                            </table>
+
+
+
+                                        </div>
+
+                                   
+
+
+
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="@Url.Content("~/assets/js/bootstrap.min.js")"></script>
+<script src="@Url.Content("~/assets/js/modernizr.min.js")"></script>
+<script src="@Url.Content("~/assets/js/detect.js")"></script>
+<script src="@Url.Content("~/assets/js/fastclick.js")"></script>
+<script src="@Url.Content("~/assets/js/jquery.slimscroll.js")"></script>
+<script src="@Url.Content("~/assets/js/jquery.blockUI.js")"></script>
+<script src="@Url.Content("~/assets/js/waves.js")"></script>
+<script src="@Url.Content("~/assets/js/wow.min.js")"></script>
+<script src="@Url.Content("~/assets/js/jquery.nicescroll.js")"></script>
+<script src="@Url.Content("~/assets/js/jquery.scrollTo.min.js")"></script>
+<script src="@Url.Content("~/assets/js/app.js")"></script>
+

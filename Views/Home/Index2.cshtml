@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+}
+
+<div class="col-md-12">
+
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+
+        </tr>
+        @foreach (var stf in ViewBag.Staffz)
+        {
+            <tr>
+                <td>@stf.Team</td>
+                <td>@stf.BestScore</td>
+
+            </tr>
+        }
+
+    </table>
+
+
+
+</div>
+

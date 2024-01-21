@@ -1,0 +1,202 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+    <!--Morris Chart CSS -->
+<link rel="stylesheet" href="@Url.Content("~/assets/plugins/morris/morris.css")">
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+
+        <div class="">
+            <div class="page-header-title">
+                <h4 class="page-title"></h4>
+            </div>
+        </div>
+
+        <div class="page-content-wrapper ">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel text-center">
+                            <div class="panel-heading" style="height:80px;">
+                                
+                                <br />
+                                <h4 class="page-title">Welcome to UNIS Staff Attendance!</h4>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+ 
+
+                   <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <h4 class="m-t-0">Attendance</h4>
+ 
+
+                <div id="morris-area-example" style="height: 300px"></div>
+            </div>
+        </div>
+    </div> 
+
+                </div>
+                <!-- end row -->
+                <!-- end row -->
+
+
+
+            </div><!-- container -->
+
+
+        </div> <!-- Page content Wrapper -->
+
+    </div> <!-- content -->
+    <!-- jQuery  -->
+    <script src="@Url.Content("~/assets/js/jquery.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/modernizr.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/detect.js")"></script>
+    <script src="@Url.Content("~/assets/js/fastclick.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.slimscroll.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.blockUI.js")"></script>
+    <script src="@Url.Content("~/assets/js/waves.js")"></script>
+    <script src="@Url.Content("~/assets/js/wow.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.nicescroll.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.scrollTo.min.js")"></script>
+    <!--Morris Chart-->
+    <script src="@Url.Content("~/assets/plugins/morris/morris.min.js")"></script>
+    <script src="@Url.Content("~/assets/plugins/raphael/raphael-min.js")"></script>
+
+ <script>
+
+
+     /**
+ Template Name: Appzia Admin
+ Dashboard
+ */
+
+
+     !function ($) {
+         "use strict";
+
+         var Dashboard = function () {
+         };
+
+
+         //creates area chart
+         Dashboard.prototype.createAreaChart = function (element, pointSize, lineWidth, data, xkey, ykeys, labels, lineColors) {
+             Morris.Area({
+                 element: element,
+                 pointSize: 3,
+                 lineWidth: 1,
+                 data: data,
+                 xkey: xkey,
+                 ykeys: ykeys,
+                 labels: labels,
+                 resize: true,
+                 gridLineColor: '#3d4956',
+                 hideHover: 'auto',
+                 lineColors: lineColors
+             });
+         },
+             //creates Bar chart
+             Dashboard.prototype.createBarChart = function (element, data, xkey, ykeys, labels, lineColors) {
+                 Morris.Bar({
+                     element: element,
+                     data: data,
+                     xkey: xkey,
+                     ykeys: ykeys,
+                     labels: labels,
+                     gridLineColor: '#3d4956',
+                     barSizeRatio: 0.4,
+                     resize: true,
+                     hideHover: 'auto',
+                     barColors: lineColors
+                 });
+             },
+
+             //creates Donut chart
+             Dashboard.prototype.createDonutChart = function (element, data, colors) {
+                 Morris.Donut({
+                     element: element,
+                     data: data,
+                     resize: true,
+                     colors: colors,
+                     backgroundColor: '#2f3e47',
+                     labelColor: '#fff'
+                 });
+             },
+
+             Dashboard.prototype.init = function () {
+
+                 //creating area chart
+                 var $areaData = [
+                     { y: '2014', a: 75, b: 65 },
+                     { y: '2015', a: 50, b: 40 },
+                     { y: '2016', a: 75, b: 65 },
+                     { y: '2017', a: 50, b: 60 },
+                     { y: '2018', a: 90, b: 85 }
+                 ];
+                 this.createAreaChart('morris-area-example', 0, 0, $areaData, 'y', ['a', 'b'], ['Series A', 'Series B'], ['#00a3ff', '#04a2b3']);
+
+                 //creating bar chart
+                 var $barData = [
+                     { y: '2009', a: 100, b: 90 },
+                     { y: '2010', a: 75, b: 65 },
+                     { y: '2011', a: 50, b: 40 },
+                     { y: '2012', a: 75, b: 65 },
+                     { y: '2013', a: 50, b: 40 },
+                     { y: '2014', a: 75, b: 65 },
+                     { y: '2015', a: 100, b: 90 },
+                     { y: '2016', a: 90, b: 75 }
+                 ];
+                 this.createBarChart('morris-bar-example', $barData, 'y', ['a', 'b'], ['Series A', 'Series B'], ['#04a2b3', '#00a3ff']);
+
+                 //creating donut chart
+                 var $donutData = [
+                     { label: "Lenovo", value: 12 },
+                     { label: "HP", value: 30 },
+                     { label: "Dell", value: 50 }
+                 ];
+                 this.createDonutChart('morris-donut-example', $donutData, ['#dcdcdc', '#e66060', '#04a2b3']);
+
+             },
+             //init
+             $.Dashboard = new Dashboard, $.Dashboard.Constructor = Dashboard
+     }(window.jQuery),
+
+         //initializing
+         function ($) {
+             "use strict";
+             $.Dashboard.init();
+         }(window.jQuery);
+ </script>
+
+
+
+
+    <script src="@Url.Content("~/assets/pages/datatables.init.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/modernizr.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/detect.js")"></script>
+    <script src="@Url.Content("~/assets/js/fastclick.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.slimscroll.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.blockUI.js")"></script>
+    <script src="@Url.Content("~/assets/js/waves.js")"></script>
+    <script src="@Url.Content("~/assets/js/wow.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.nicescroll.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.scrollTo.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/app.js")"></script>
+
+
+</div>
